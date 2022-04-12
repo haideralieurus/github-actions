@@ -12,7 +12,6 @@ jobs:
 
     steps:
     - name: Build and push docker image
-      run: echo "Building docker Image using action"
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
         image: haiderdocker/test-github-action
