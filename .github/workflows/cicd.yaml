@@ -11,6 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Testing
+      run: |
+          echo "Building docker Image using action"
+          ls 
+
     - name: Build and push docker image
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
