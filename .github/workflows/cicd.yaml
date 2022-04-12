@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+    - name: checkout to branch
+        uses: actions/checkout@v2
     - name: Testing
       run: |
           echo "Building docker Image using action"
