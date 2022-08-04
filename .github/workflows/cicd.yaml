@@ -9,20 +9,24 @@ jobs:
   deploy:
 
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        name: ['haider', 'zia', 'raza'] 
+
 
     steps:
     - uses: actions/checkout@v2
         
     - name: Testing
       run: |
-          echo "Building docker Image using action"
-          ls 
+          echo "Hello ${{ matrix.name }}, How are you"
 
-    - name: Build and push docker image
-      uses: mr-smithers-excellent/docker-build-push@v5
-      with:
-        image: haiderdocker/test-github-action
-        tags: latest
-        registry: docker.io
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    # - name: Build and push docker image
+    #   uses: mr-smithers-excellent/docker-build-push@v5
+    #   with:
+    #     image: haiderdocker/test-github-action
+    #     tags: latest
+    #     registry: docker.io
+    #     username: ${{ secrets.DOCKER_USERNAME }}
+    #     password: ${{ secrets.DOCKER_PASSWORD }}
